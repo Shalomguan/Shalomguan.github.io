@@ -6,13 +6,13 @@ html, body {
   }
   
   html {
-    font-size: 10px;
+    font-size: 14px;
     background-color: #a9a9a9;
   }
   
   body {
     width: 70%;
-    margin: 0 auto;
+    margin: 4 auto;
   }
   
   /* 文字排版 */
@@ -77,7 +77,7 @@ html, body {
   
   nav a {
     display: inline-block;
-    font-size: 2rem;
+    font-size: 1.4rem;
     text-transform: uppercase;
     text-decoration: none;
     color: black;
@@ -89,12 +89,12 @@ html, body {
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 0 2em;
+    padding: 2 2em;
   }
   
   nav a:hover {
     color: white;
-    text-shadow: 0 0 10px wheat;
+    text-shadow: 1 1 10px wheat;
     transition-duration: 200ms;
   }
   
@@ -104,11 +104,11 @@ html, body {
   }
   
   input[type="search"] {
-    flex: 3;
+    flex: 2;
   }
   
   input[type="submit"] {
-    flex: 1;
+    flex: 4;
     margin-left: 1rem;
     background: #333;
     border: 0;
@@ -122,19 +122,25 @@ html, body {
   }
   
   article {
+    font-size:18px;
     flex: 4;
   }
   
   aside {
     flex: 1;
-    margin-left: 10px;
+    margin-left: 12px;
     background-color: #66ccff;
   }
   
   aside li {
-    padding-bottom: 10px;
+    padding-bottom: 8px;
   }
-  
+  aside h3 {
+    font-size: 19px;
+  }
+  aside ul li{
+    font-size:17px
+  }
   footer {
-    margin-top: 10px;
+    margin-top: 12px;
   }

@@ -122,7 +122,7 @@ html, body {
   }
   
   article {
-    font-size:12px;
+    font-size:16px;
     
     flex: 4;
   }
@@ -143,5 +143,5 @@ html, body {
     font-size:17px
   }
   footer {
-    margin-top: 12px;
+    margin-top: 18px;
   }

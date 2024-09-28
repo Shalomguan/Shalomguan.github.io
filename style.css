@@ -51,7 +51,7 @@ html, body {
   /* 标题布局 */
   
   nav, article, aside, footer {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     padding: 1%;
   }
   
@@ -123,6 +123,7 @@ html, body {
   
   article {
     font-size:18px;
+    
     flex: 4;
   }
   

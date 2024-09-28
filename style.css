@@ -4,7 +4,6 @@ html, body {
     margin: 0;
     padding: 0;
   }
-  
   html {
     font-size: 120%;
     width: 100%;
@@ -17,13 +16,15 @@ html, body {
   }
   
   /* 文字排版 */
-  
+  header{
+    text-align: center;
+  }
   h1, h2, h3 {
     font-family: 'Sonsie One', 'ZCOOL KuaiLe', cursive;
-    opacity: 1;
+    position: center,center;
+    text-align: center;
     color: #6328286e;
   }
-  
   p, input, li {
     font-family: 'Open Sans Condensed', sans-serif;
     opacity: 1;
@@ -132,6 +133,7 @@ html, body {
   main {
     display: flex;
     opacity: 1;
+    
   }
   
   article {
@@ -160,10 +162,10 @@ html, body {
     margin-top: 2%;
   }
   html{
-    /* margin:0px; */
+    margin:0px;
     background-image: url("resphoto/香菇2.png");
-    /* background-size: 100% 100%;
-    background-attachment: fixed; */
+    background-size: 100% 100%;
+    background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
     background-size:cover;

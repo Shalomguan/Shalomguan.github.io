@@ -159,8 +159,14 @@ html, body {
     margin-top: 18px;
   }
   html{
-    background-image: url("resphoto/香菇1.jpg");
-    background-size: cover;
+    /* margin:0px; */
+    background-image: url("resphoto/香菇2.jpg");
+    /* background-size: 100% 100%;
+    background-attachment: fixed; */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    
   }
   div1 {
     opacity: 1;

@@ -1,0 +1,365 @@
+# ============================================================
+# Hexo Theme: Volantis - Wa's Blog 自定义配置
+# 文件名：_config.volantis.yml
+# 放在：Hexo 博客根目录（和 _config.yml 同级）
+# ============================================================
+
+# 站点基础信息（可选）
+info:
+  title: "Wa's Blog"
+  subtitle: ""
+  author: "wa"
+  language: zh-CN
+
+# ------------------------------------------------------------
+# 导航栏 navbar
+# ------------------------------------------------------------
+navbar:
+  width: auto
+  height: 64px
+  visiable: auto # always, auto
+  effect: [shadow, blur] # [shadow, floatable, blur]
+
+  logo: # choose [img] or [icon + title]
+    img: /images/tx.jpg      # logo 图片路径
+    icon: /images/tx.jpg
+    title: "Wa's blog"
+
+  # 顶部菜单
+  menu:
+    - name: 主页
+      icon: fa-solid fa-rss
+      url: /
+    - name: 分类
+      icon: fa-solid fa-folder-open
+      url: /categories/
+    - name: 标签
+      icon: fa-solid fa-tags
+      url: /tags/
+    - name: 归档
+      icon: fa-solid fa-archive
+      url: /archives/
+    - name: 友链
+      icon: fa-solid fa-link
+      url: /friends/
+    - name: 暗黑模式 # 可自定义
+      icon: fa-solid fa-moon # 可自定义
+      toggle: darkmode
+
+  # 顶部搜索框占位文字
+  search: Search...
+
+# ------------------------------------------------------------
+# 顶部大封面 / 首页封面 cover
+# ------------------------------------------------------------
+cover:
+  height_scheme: half        # full, half
+  layout_scheme: featured    # blank, search, dock, featured, focus
+  display:
+    home: true               # 首页显示
+    archive: false
+    others: false            # 也可以在 front-matter 里写 cover: true 单独开启
+
+  background: /images/香菇红帽子.jpg  # 封面背景图
+  # background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200  # 也可以用必应随机图
+
+  logo:                       # 封面正中的小 logo（可留空）
+  title: "Wa's Blog"          # 中间显示的大标题
+  subtitle: ""                # 副标题
+  search: A Wonderful Theme for Hexo  # 封面搜索框 placeholder
+  features:                   # 封面中间的几个功能按钮（留空也行）
+    # - name: 关于我
+    #   icon: fa-solid fa-user
+    #   url: /about/
+
+# ------------------------------------------------------------
+# 字体设置 fontfamily
+# ------------------------------------------------------------
+fontfamily:
+  logofont:
+    fontfamily: '"haipai", "Microsoft YaHei", Helvetica, Arial'
+    name: "haipai"
+    url: /fonts/haipai.ttf
+    weight: normal
+    style: normal
+
+  bodyfont:
+    fontfamily: '"haipai", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
+    name: "haipai"
+    url: /fonts/haipai.ttf
+    weight: normal
+    style: normal
+
+  codefont:
+    fontfamily: "FiraCode-SemiBold, haipai, Monaco"
+    name: "FiraCode-SemiBold"
+    url: /fonts/FiraCode-SemiBold.ttf
+    weight: normal
+    style: normal
+
+# ------------------------------------------------------------
+# 侧边栏 sidebar
+# ------------------------------------------------------------
+sidebar:
+  position: left          # left 或 right
+
+  # 主页、分类、标签、归档等独立页面使用哪些组件（顺序就是显示顺序）
+  for_page: [blogger, music, category, tagcloud, webinfo]
+
+  # 文章页面（layout: post / docs）使用哪些组件
+  for_post: [toc, notice, tagcloud]
+
+  # 侧边栏组件库
+  widget_library:
+    # 博主信息卡片
+    blogger:
+      class: blogger
+      display: [desktop, mobile]
+      avatar: /images/tx.jpg
+      title: "wa"
+      subtitle: "Keep Learning, Keep Coding."
+      shape: circle
+      social:
+        - name: GitHub
+          icon: fab fa-github
+          url: https://github.com/Shalomguan
+        - name: Email
+          icon: fa-solid fa-envelope
+          url: mailto:qutypebeat@gmail.com
+
+    # 全局公告
+    notice:
+      class: text
+      header:
+        icon: fa-solid fa-bullhorn
+        title: 公告
+      content:
+        - "Welcome to Wa's Blog ✨"
+
+    # 音乐（与全局 aplayer 联动）
+    music:
+      class: music
+      header:
+        icon: fa-solid fa-music
+        title: 听听音乐
+      player: aplayer    # 使用下面 aplayer 配置
+
+    # 分类
+    category:
+      class: category
+      header:
+        icon: fa-solid fa-folder-open
+        title: 分类
+
+    # 标签云
+    tagcloud:
+      class: tagcloud
+      header:
+        icon: fa-solid fa-tags
+        title: 标签云
+
+    # 站点信息（文章数、总字数、运行时间、最后活动时间）
+    webinfo:
+      class: webinfo
+      display: [desktop]
+      header:
+        icon: fa-solid fa-info-circle
+        title: 站点信息
+      type:
+        article:
+          enable: true
+          text: '文章数目：'
+          unit: '篇'
+        runtime:
+          enable: true
+          date: '2025/12/01'      # 建站日期自己改
+          text: '已运行时间：'
+          unit: '天'
+        wordcount:
+          enable: true
+          text: '本站总字数：'
+          unit: '字'
+        lastupd:
+          enable: true
+          friendlyShow: true
+          text: '最后活动时间：'
+          unit: '日'
+
+    # 文章目录（for_post 才用到）
+    toc:
+      class: toc
+      header:
+        icon: fa-solid fa-list
+        title: 本文目录
+
+# ------------------------------------------------------------
+# 默认作者信息 meta_library
+# ------------------------------------------------------------
+meta_library:
+  author:
+    avatar: /images/tx.jpg # 作者头像图片路径
+    name: wa
+    url: /Shalomguan.github.io # 作者主页，一般就是博客地址（也可以改成 /）
+
+# ------------------------------------------------------------
+# 文章展示相关 article
+# ------------------------------------------------------------
+article:
+  layout_scheme: blog       # blog / docs
+  readmore: auto            # auto / always / none
+  # 列表页的文章卡片 meta 信息
+  meta:
+    index:
+      date: true
+      category: true
+      tags: true
+      author: false
+      comments: false
+    post:
+      date: true
+      category: true
+      tags: true
+      author: true
+      readingtime: true
+  # 代码高亮/复制按钮等由 plugins.copycode 控制
+
+# ------------------------------------------------------------
+# 评论（这里先全部关闭，需要的话再自己换成 twikoo / waline 等）
+# ------------------------------------------------------------
+comments:
+  service: false
+
+# ------------------------------------------------------------
+# 视差背景图 parallax
+# ------------------------------------------------------------
+parallax:
+  enable: true
+  position: fixed # cover: 固定在封面, fixed: 滚动跟随
+  shuffle: true   # 乱序显示
+  duration: 10000 # 单张显示时间（毫秒）
+  fade: 500       # 渐变时间（毫秒）
+  images:
+    - volantis-static/media/wallpaper/minimalist/2020/001.webp
+    - volantis-static/media/wallpaper/minimalist/2020/002.webp
+    - volantis-static/media/wallpaper/minimalist/2020/003.webp
+    - volantis-static/media/wallpaper/minimalist/2020/004.webp
+    - volantis-static/media/wallpaper/minimalist/2020/005.webp
+    - volantis-static/media/wallpaper/minimalist/2020/006.webp
+    - volantis-static/media/wallpaper/minimalist/2020/012.webp
+    - volantis-static/media/wallpaper/minimalist/2020/016.webp
+    - volantis-static/media/wallpaper/minimalist/2020/019.webp
+    - volantis-static/media/wallpaper/minimalist/2020/025.webp
+    - volantis-static/media/wallpaper/minimalist/2020/033.webp
+    - volantis-static/media/wallpaper/minimalist/2020/034.webp
+    - volantis-static/media/wallpaper/minimalist/2020/035.webp
+    - volantis-static/media/wallpaper/minimalist/2020/038.webp
+    - volantis-static/media/wallpaper/minimalist/2020/039.webp
+    - volantis-static/media/wallpaper/minimalist/2020/042.webp
+    - volantis-static/media/wallpaper/minimalist/2020/046.webp
+    - volantis-static/media/wallpaper/minimalist/2020/051.webp
+    - volantis-static/media/wallpaper/minimalist/2020/052.webp
+    - volantis-static/media/wallpaper/minimalist/2020/054.webp
+    - volantis-static/media/wallpaper/minimalist/2020/056.webp
+
+# ------------------------------------------------------------
+# APlayer 全局音乐播放器（底部或侧边的那个）
+# ------------------------------------------------------------
+aplayer:
+  enable: true
+  js:
+    aplayer: https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js
+    meting: https://unpkg.com/meting@2.0.1/dist/Meting.min.js
+  css: https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css
+
+  # 网易云为例
+  server: netease       # netease, tencent, kugou, xiami, baidu
+  type: playlist        # song, playlist, album, search, artist
+  id: 12222921746      # 这里换成你自己的歌单 ID 就更好了
+
+  fixed: false          # false = 在侧边栏卡片里，true = 固定在底部悬浮
+  theme: "#1BCDFC"
+  autoplay: false
+  order: list           # list / random
+  loop: all             # all / one / yaml
+  volume: 0.7
+  list_max_height: 320px
+  list_folded: true
+  autoHide: false
+
+
+# ------------------------------------------------------------
+# 插件配置 plugins
+# ------------------------------------------------------------
+plugins:
+
+
+  # 暗黑模式
+  darkmode:
+    enable: true
+    default: auto   # auto / dark / light
+    switch: true
+
+  # 返回顶部按钮
+  back2top:
+    enable: true
+
+  # 复制代码按钮
+  copycode:
+    enable: true
+
+  # 图片懒加载
+  lazyload:
+    enable: true
+
+  # 页面滚动动效
+  scrollreveal:
+    enable: true
+  # 音乐播放
+  aplayer:
+    enable: true
+  wordcount:
+    enable: true
+
+# ------------------------------------------------------------
+# 搜索配置（配合 hexo-generator-json-content）
+# ------------------------------------------------------------
+search:
+  enable: true
+  service: hexo          # 使用本地 json 搜索
+  placeholder: "Search..."
+
+# ------------------------------------------------------------
+# 页脚（你可以按自己喜好改）
+# ------------------------------------------------------------
+footer:
+  layout: [social, license, br, powered_by]
+  social:
+    - name: GitHub
+      icon: fab fa-github
+      url: https://github.com/Shalomguan
+  license: "© ${year} Wa's Blog"
+  powered_by:
+    - name: "Hexo"
+      url: https://hexo.io
+    - name: "Volantis"
+      url: https://volantis.js.org
+
+# ------------------------------------------------------------
+# 自定义样式 custom_css
+# ------------------------------------------------------------
+custom_css:
+  # 让导航栏顶部留出一点距离，并且圆角化
+  navbar:
+    margin-top: 10px
+    width: 95%         # 不占满全屏宽度
+    left: 2.5%         # 居中
+    border-radius: 16px
+
+  # 主体卡片加一点阴影
+  body:
+    effect: [shadow]
+
+  # 封面标题稍微大一点更有气势（按需）
+  cover:
+    title_font_size: 2.6rem
+    subtitle_font_size: 1.2rem

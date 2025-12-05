@@ -1,0 +1,45 @@
+/* 只针对 PC 端导航栏（宽度 >= 768px） */
+@media (min-width: 768px)
+  /* 导航整体用 flex，从左向右排布 */
+  #l_header .nav-main
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    width: 100%
+
+  /* 标题区域（头像 + “Wa's blog”） */
+  #l_header .nav-main .title.flat-box
+    display: flex
+    align-items: center
+    white-space: nowrap
+    order: 0               // 第一个
+
+  #l_header .nav-main .title.flat-box img
+    border-radius: 50%     // 圆形头像
+    margin-right: .5rem
+
+  /* 菜单区域：紧跟在标题后面，靠左 */
+  #l_header .nav-main .menu.navigation
+    order: 1               // 第二个
+    margin-left: 1.5rem    // 标题和菜单之间的间距
+
+  #l_header .nav-main .menu.navigation .nav-list-h.m-pc
+    display: flex          // 防止菜单竖着排
+
+  /* 搜索区域：放最后，用 margin-left:auto 顶到最右 */
+  #l_header .nav-main .m_search
+    order: 2               // 第三个（最后一个）
+    margin-left: auto      // 关键：把它推到最右侧
+    max-width: 260px
+    flex: 0 0 260px        // 搜索块宽度，大概 260px，可按需调
+
+  #l_header .nav-main .m_search .form
+    width: 100%
+
+  #l_header .nav-main .m_search input
+    width: 100%
+
+/* 侧边栏博主头像也圆一下 */
+.widget.blogger .content .avatar img,
+.widget.blogger .content img
+  border-radius: 50%

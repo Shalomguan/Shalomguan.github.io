@@ -1,45 +1,263 @@
-/* 只针对 PC 端导航栏（宽度 >= 768px） */
+/* ============================================================
+   1. 导航栏与搜索框修复
+   ============================================================ */
 @media (min-width: 768px)
-  /* 导航整体用 flex，从左向右排布 */
   #l_header .nav-main
     display: flex
     align-items: center
     justify-content: flex-start
     width: 100%
 
-  /* 标题区域（头像 + “Wa's blog”） */
   #l_header .nav-main .title.flat-box
     display: flex
     align-items: center
     white-space: nowrap
-    order: 0               // 第一个
+    order: 0
 
   #l_header .nav-main .title.flat-box img
-    border-radius: 50%     // 圆形头像
+    border-radius: 50%
     margin-right: .5rem
 
-  /* 菜单区域：紧跟在标题后面，靠左 */
   #l_header .nav-main .menu.navigation
-    order: 1               // 第二个
-    margin-left: 1.5rem    // 标题和菜单之间的间距
+    order: 1
+    margin-left: 1.5rem
 
   #l_header .nav-main .menu.navigation .nav-list-h.m-pc
-    display: flex          // 防止菜单竖着排
+    display: flex
 
-  /* 搜索区域：放最后，用 margin-left:auto 顶到最右 */
+  /* 搜索框容器 */
   #l_header .nav-main .m_search
-    order: 2               // 第三个（最后一个）
-    margin-left: auto      // 关键：把它推到最右侧
-    max-width: 260px
-    flex: 0 0 260px        // 搜索块宽度，大概 260px，可按需调
+    order: 2
+    margin-left: auto
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    flex: 0 0 300px
+    min-width: 300px
+    max-width: 400px
+    height: 32px
 
-  #l_header .nav-main .m_search .form
-    width: 100%
+  /* 搜索表单 */
+  #l_header .nav-main .m_search .u-search-form
+    display: flex
+    align-items: center
+    width: 100% !important
+    height: 100%
+    background: rgba(0, 0, 0, 0.4) !important
+    border-radius: 16px
+    padding: 0 8px
+    position: relative
+    border: 1px solid rgba(255, 255, 255, 0.15)
 
-  #l_header .nav-main .m_search input
-    width: 100%
+  /* 搜索图标 */
+  #l_header .nav-main .m_search .u-search-form .search-btn,
+  #l_header .nav-main .m_search .u-search-form .icon
+    position: static !important
+    order: -1
+    margin-right: 8px
+    background: transparent !important
+    border: none !important
+    box-shadow: none !important
+    padding: 0 !important
+    display: flex
+    align-items: center
+    height: 100%
+    opacity: 0.9
+    color: #ffffff !important
+    fill: #ffffff !important
 
-/* 侧边栏博主头像也圆一下 */
+  /* 搜索输入框 */
+  #l_header .nav-main .m_search .u-search-form input
+    flex: 1
+    width: 100% !important
+    background: transparent !important
+    border: none !important
+    outline: none
+    padding: 0 !important
+    margin: 0 !important
+    height: 100%
+    opacity: 1 !important
+    color: #ffffff !important
+
+/* 头像圆角 */
 .widget.blogger .content .avatar img,
 .widget.blogger .content img
   border-radius: 50%
+
+/* ============================================================
+   2. 全屏壁纸
+   ============================================================ */
+html
+  background: url("/images/redhat.jpg") no-repeat center center fixed !important
+  background-size: cover !important
+  min-height: 100%
+
+/* 清除中间层背景 */
+body, #l_body, #l_main, #safearea, .body-wrapper, #l_cover
+  background: transparent !important
+  background-color: transparent !important
+  background-image: none !important
+
+/* ============================================================
+   3. 全局文字与卡片样式 (Global Text & Cards)
+   ============================================================ */
+
+/* 卡片毛玻璃与黑底 */
+.white-box, .widget, #l_header, .post, .article-entry
+  backdrop-filter: blur(20px) !important
+  -webkit-backdrop-filter: blur(20px) !important
+  background: rgba(0, 0, 0, 0.6) !important
+  border-radius: 12px !important
+
+/* 强制覆盖 CSS 变量 */
+:root, [data-theme="light"], [data-theme="dark"]
+  --color-card: rgba(0, 0, 0, 0.6) !important
+  --color-text: #eeeeee !important
+  --color-heading: #ffffff !important
+  --color-meta: #cccccc !important
+  --color-link: #8be9fd !important /* Dracula Cyan */
+
+/* 强制大部分文字变白 (排除代码块，防止覆盖高亮) */
+body, p, li, h1, h2, h3, h4, h5, h6,
+.article-entry > p, .widget, .content, .excerpt
+  color: #eeeeee !important
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important
+
+/* 修复文章标题颜色 */
+.article-title, .post-title
+  color: #ffffff !important
+  font-weight: bold !important
+
+/* 修复链接颜色 */
+a, .article-entry a, .link
+  color: #8be9fd !important /* 青色链接，很适合暗黑风 */
+  text-decoration: none
+
+/* 修复导航栏 */
+.navbar
+  background: rgba(0, 0, 0, 0.6) !important
+  backdrop-filter: blur(20px)
+
+/* ============================================================
+   4. ★★★ 代码块颜值拯救计划 (Code Block Rescue) ★★★
+   ============================================================ */
+
+/* 1. 修复代码块容器：背景统一，去掉多余的边框 */
+figure.highlight
+  background: #282a36 !important /* Dracula 经典深灰背景 */
+  border-radius: 8px !important
+  margin: 1rem 0 !important
+  border: 1px solid rgba(255, 255, 255, 0.1) !important
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important
+
+/* 2. 只有代码块内部：取消文字阴影(不然代码会看起来糊) */
+figure.highlight *
+  text-shadow: none !important
+
+/* 3. 修复内部元素：防止背景重叠 (就是你觉得丑的原因) */
+figure.highlight table, 
+figure.highlight pre, 
+figure.highlight .code
+  background: transparent !important
+  border: none !important
+  margin: 0 !important
+
+/* 4. 强制恢复语法高亮颜色 (Dracula 配色) */
+/* 因为之前强制所有文字变白，这里必须用 !important 抢回来 */
+
+/* 关键字 (const, function, return) -> 粉色 */
+.highlight .keyword, 
+.highlight .function .keyword,
+.highlight .javascript .function
+  color: #ff79c6 !important 
+
+/* 字符串 ('Person', "Hello") -> 黄色 */
+.highlight .string
+  color: #f1fa8c !important
+
+/* 注释 (//...) -> 灰紫色 */
+.highlight .comment
+  color: #6272a4 !important
+  font-style: italic !important
+
+/* 变量/属性 -> 绿色/白色 */
+.highlight .variable, 
+.highlight .attr
+  color: #50fa7b !important
+
+/* 数字 -> 紫色 */
+.highlight .number, 
+.highlight .literal
+  color: #bd93f9 !important
+
+/* 函数名/类名 -> 青色 */
+.highlight .title, 
+.highlight .params
+  color: #8be9fd !important
+
+/* 标点符号 -> 白色 */
+.highlight .symbol
+  color: #f8f8f2 !important
+  
+/* 修复行号颜色 */
+.highlight .gutter
+  color: #6272a4 !important
+  border-right: 1px solid rgba(255,255,255,0.1) !important
+/* ============================================================
+   5. ★★★ 首页摘要文字“隐身”修复补丁 ★★★
+   解决：在白色模式下，背景被强制变黑，但文字依然是深灰导致看不清的问题
+   ============================================================ */
+
+/* 1. 暴力定位首页卡片里的正文/摘要区域 */
+/* Volantis 等主题通常用 .md 或 .article-desc 包裹摘要 */
+.post-list .post .md,
+.post-list .post .article-desc,
+.post-wrapper .md,
+.post-layout .md
+  color: #e0e0e0 !important  /* 强制改为亮灰色 (接近白) */
+  opacity: 1 !important      /* 关键！很多主题会把摘要设为 0.6 透明度，这里强制不透明 */
+  font-weight: 400 !important /* 字体稍微加重一点点 */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6) !important /* 加阴影，增加文字和玻璃背景的对比度 */
+
+/* 2. 修复“Read More / 阅读更多”按钮 */
+/* 经常也会变成深色导致看不清 */
+.read-more .btn,
+.article-more-link a
+  background: rgba(255, 255, 255, 0.1) !important
+  color: #8be9fd !important /* 青色高亮 */
+  border: 1px solid rgba(255, 255, 255, 0.2) !important
+
+/* 3. 修复首页卡片底部的元信息 (日期、分类) */
+.post-list .meta-v3,
+.post-list .article-meta,
+.post-list .article-meta span,
+.post-list .article-meta time
+  color: #a0a0a0 !important /* 浅灰色 */
+
+/* 4. 确保首页标题绝对是白色 */
+.post-list .article-title,
+.post-list .post-title
+  color: #ffffff !important
+/* ============================================================
+   8. ★★★ Giscus 评论区适配 (Giscus Fix) ★★★
+   ============================================================ */
+
+/* 1. 调整 Giscus 容器的外边距 */
+#giscus_container, .giscus {
+  margin-top: 2rem !important;
+  padding: 10px !important;
+}
+
+/* 2. 强制隐藏 Giscus 可能自带的白色背景 (如果 theme 没生效) */
+iframe.giscus-frame {
+  color-scheme: dark !important; /* 告诉浏览器这是一个深色 iframe */
+}
+
+/* 3. 评论区所在的白色卡片背景再次强制加深 */
+/* 你的 DOM 结构里，评论区在 #comments 里面 */
+#l_main article#comments.post.white-box {
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(20px) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}

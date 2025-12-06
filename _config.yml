@@ -118,3 +118,9 @@ sonContent:
     text: true
     tags: true
     categories: true
+webinfo:
+  enable: true          # 没有就加，有就保留
+  runtime:
+    enable: true
+    date: 2025-11-28    # ⭐ 改成你的建站日期（用 - 分隔，YYYY-MM-DD）
+

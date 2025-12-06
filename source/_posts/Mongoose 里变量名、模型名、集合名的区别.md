@@ -8,7 +8,7 @@ categories: fullstackopen
 最近在学习fullstackopen的时候被mogos的变量名，模型名和集合名的概念搞得晕晕的
 
 踩坑几次之后，索性写了一次博客：**在 Mongoose 里，下面这三个名字分别是什么、干嘛用、有什么关系。**
-
+<!--more-->>
 ```js
 const Person = mongoose.model('Person', phonebookSchema)
 ````
@@ -18,7 +18,7 @@ const Person = mongoose.model('Person', phonebookSchema)
 * JS 变量名：`Person`
 * 模型名（Model name）：`'Person'`
 * 集合名（Collection name，很多人会叫“表名”）
-
+<!-- more -->
 ## 1. 变量名：Person —— 只是你代码里的一个变量
 
 先看左边：

@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: volantis
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -118,9 +118,8 @@ sonContent:
     text: true
     tags: true
     categories: true
-webinfo:
-  enable: true          # 没有就加，有就保留
-  runtime:
-    enable: true
-    date: 2025-11-28    # ⭐ 改成你的建站日期（用 - 分隔，YYYY-MM-DD）
-
+symbols_count_time:
+  symbols: true #是否统计字数
+  time: false #是否统计阅读时长
+  total_symbols: true #是否统计总字数
+  total_time: false #是否统计总阅读时长

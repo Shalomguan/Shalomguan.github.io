@@ -14,7 +14,7 @@ Full Stack Open 课程主要涵盖了现代 Web 开发的核心技术栈：
 * **Frontend**: React.js (Hooks, State Management)
 * **Backend**: Node.js & Express
 * **Deployment**: Fly.io
-
+<!-- more -->
 ## 💡 学习心得
 
 ### 1\. React 的特性
